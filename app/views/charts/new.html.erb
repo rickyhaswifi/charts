@@ -1,2 +1,19 @@
-<h1>Charts#new</h1>
-<p>Find me in app/views/charts/new.html.erb</p>
+<h1>Add a song</h1>
+<h1><%= @chart.id ? 'Edit Song' : 'Create Song'%> </h1>
+
+<%= form_for @chart do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>
+    <%= f.submit%>
+<% end%>
+
+
+<hr>
+
+<button>
+<%= link_to 'Cancel', root_path%>
+</button>
