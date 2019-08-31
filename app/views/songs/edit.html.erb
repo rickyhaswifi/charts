@@ -1,2 +1,22 @@
 <h1>Songs#edit</h1>
-<p>Find me in app/views/songs/edit.html.erb</p>
+<h1>Edit a song</h1>
+<h1><%= @song.id ? 'Edit Song' : 'Create Song'%> </h1>
+
+<%= form_for @song do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br />
+    <%= f.label :artist %>
+    <%= f.text_field :artist, required: true %>
+    <br />
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>
+    <%= f.submit%>
+<% end%>
+
+<hr>
+
+<button>
+<%= link_to 'Cancel', root_path%>
+</button>
