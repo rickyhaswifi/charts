@@ -1,0 +1,7 @@
+<h1>Click an Artist To View Details</h1>
+<%= link_to 'Create a new artist', new_sub_topic_path(@sub) %>
+<ul>
+  <% @artists.each do |artist| %>
+    <li><%= link_to artist.name, [@song, artist] %></li>
+  <% end %>
+</ul>
