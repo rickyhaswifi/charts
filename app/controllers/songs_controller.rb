@@ -6,16 +6,17 @@ class SongsController < ApplicationController
     @songs = @chart.songs
   end
 
-  def new
-    @song = @chart.songs.new
-    #render partial: 'form'
-  end
-
   def show
   end
 
+  def new
+    @song = @chart.songs.new
+    render partial: 'form'
+  end
+
+
   def create
-    @songs = @chart.songs.new(song_params)
+    @song = @chart.songs.new(song_params)
 
     if @song.save
       redirect_to [@chart, @song]
@@ -42,16 +43,16 @@ class SongsController < ApplicationController
   end
 
   private
+  def song_params
+    params.require(:song).permit(:title, :artist, :album, :genre)
+  end
+
   def set_chart
     @chart = Chart.find(params[:chart_id])
   end
 
   def set_song
     @song = Song.find(params[:id])
-  end
+  end 
 
-  def song_params
-    params.require(:song).permit(:name, :artist, :genre)
-  end
 end
-

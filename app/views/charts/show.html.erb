@@ -2,6 +2,8 @@
 <h1>Genre: <%= @chart.genre %></h1>
 <p>What do you like to do?</p>
 
-<%= link_to 'Edit Song', edit_chart_path(@chart) %>
-<%= link_to 'Delete Song', @chart, method: :delete %>
+<%= link_to 'New Song', new_chart_song_path(@chart) %>
+<%= link_to 'View Songs', chart_song_path(@chart) %>
+<%= link_to 'Edit Chart', edit_chart_path(@chart) %>
+<%= link_to 'Delete Chart', @chart, method: :delete %>
 <%= link_to 'Back', root_path%>

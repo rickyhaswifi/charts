@@ -1,4 +1,6 @@
 class ChartsController < ApplicationController
+  before_action :set_chart, only: [:show, :edit, :update, :destroy]
+
   def index
     @charts = Chart.all
   end
@@ -9,7 +11,6 @@ class ChartsController < ApplicationController
   end
   
   def show
-    @chart = Chart.find(params[:id])
   end
 
   def create
@@ -23,11 +24,9 @@ class ChartsController < ApplicationController
   end
 
   def edit
-    @chart = Chart.find(params[:id])
   end
 
   def update
-    @chart = Chart.find(params[:id])
 
     if @chart.update(chart_params)
       redirect_to chart_path
@@ -37,13 +36,17 @@ class ChartsController < ApplicationController
   end
 
   def destroy
-    Chart.find(params[:id]).destroy
+    @chart.destroy
     redirect_to charts_path
   end
 
   private
   def chart_params
   params.require(:chart).permit(:attr, :title, :genre)
+  end
+
+  def set_chart
+    @chart = Chart.find(params[:id])
   end
 
 end

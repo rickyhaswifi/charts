@@ -10,7 +10,7 @@
 <div class="col-10">
 <ul>
   <% @charts.each do |chart|%>
-    <li class="card mb-3"><%= link_to chart.title, chart_path(chart) %></li>
+    <li class="card mb-3"> <%= link_to chart.title, chart_path(chart) %> </li>
   <% end %>
 </ul>
 
@@ -20,5 +20,6 @@
 </div>
 
 <div class="chart-footer">
-<%= link_to 'New Song', new_chart_path %>
+<%= link_to 'New Chart', new_chart_path %>
+
 </div>

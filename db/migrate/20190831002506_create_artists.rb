@@ -4,6 +4,8 @@ class CreateArtists < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :string
 
+      t.belongs_to :song, null: false, foreign_key: true
+
       t.timestamps
     end
   end
