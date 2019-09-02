@@ -1,4 +1,4 @@
 class Song < ApplicationRecord
   belongs_to :chart
-  has_one :artist
+  has_one :preformer
 end

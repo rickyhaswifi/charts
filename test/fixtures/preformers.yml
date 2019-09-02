@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  recordlabel: MyString
+  label: MyString
   song: one
 
 two:
   name: MyString
-  recordlabel: MyString
+  label: MyString
   song: two

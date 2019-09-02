@@ -16,10 +16,17 @@
 
  @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
+ html {
+    height: 100%;
+}
+
  body {
      padding: 3em;
-     height: 100vh !important;
      background: linear-gradient(45deg,#FF8200, #FF5FC4, #5900FF);
+     height: 100%;
+     margin: 0;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
  }
 
  .chart-header, .chart-footer {
@@ -60,3 +67,22 @@ font-weight: bold;
 .hide {
     display: none !important;
 }
+
+
+[draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+  }
+
+  .column.dragElem {
+    opacity: 0.4;
+  }
+  .column.over {
+    //border: 2px dashed #000;
+    border-top: 2px solid blue;
+  }
