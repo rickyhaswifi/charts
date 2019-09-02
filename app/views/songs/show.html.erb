@@ -1,0 +1,18 @@
+<div class="chart-header">
+<h1><%= @chart.title %></h1>
+<h1>Song Details</h1>
+</div>
+
+<div class="card mb-3">
+<p> Chart Position: <%= @song.id %></p>
+<p>Title: <%= @song.title %></p>
+<p>Artist: <%= @song.artist %> </p>
+<p>Album: <%= @song.album %></p>
+<p>Genre: <%= @song.genre %></p>
+</div>
+
+<%= link_to 'New Artist', new_song_artist_path([@song, @artist]) %>
+<%= link_to 'Edit Song', edit_chart_song_path([@sub, @topic]) %>
+<%= link_to 'Delete Song', [@chart, @song], method: :delete %>
+<%= link_to 'Back To Songs', chart_song_path(@chart) %>
+<%= link_to 'Back', root_path%>

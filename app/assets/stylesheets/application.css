@@ -18,12 +18,45 @@
 
  body {
      padding: 3em;
-     height: 100vh;
-     background: linear-gradient(45deg,orange, pink);
+     height: 100vh !important;
+     background: linear-gradient(45deg,#FF8200, #FF5FC4, #5900FF);
  }
 
  .chart-header, .chart-footer {
+     color: white;
+    font-family: poppins !important;
+    font-weight: bold;
      text-align: center;
+     text-transform: uppercase;
      margin: 3em;
  }
 
+.card {
+    padding: 20px;
+    border-radius: 0px 30px 0px 30px;
+} 
+
+.chart-song {
+ font-family: poppins;
+ text-align: left;
+}
+
+.chart-song-position{
+text-align: center;
+font-size: 4em;
+font-weight: bold;
+}
+
+
+.chart-song-title {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+}
+
+.chart-song-edit {
+    text-align: right;
+}
+
+.hide {
+    display: none !important;
+}

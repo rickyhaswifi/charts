@@ -1,7 +1,46 @@
+<div class="chart-header">
 <h1>Title: <%= @chart.title %></h1>
 <h1>Genre: <%= @chart.genre %></h1>
+</div>
+
+<div class="chart">
+<div class="row">
+<div class="col"></div>
+<div class="col-10">
+<ul>
+  <% @chart.songs.each do |song|%>
+    <li class="card chart-song mb-3">
+
+    <div class="row">
+
+        <div class="col-2">
+        <h1 class="chart-song-position"> <%= song.id %> </h1>
+        </div>
+
+            <div class=row>
+                <div class="col-11">
+                <h4 class="chart-song-title"><%= song.title %> <br> <%= song.artist %> </h4> <br> Album: <%= song.album %> <br> Genre: <%= song.genre %> 
+                </div>
+                <div class="col-1">
+                <p class="chart-song-edit"> <%= link_to '✎', [@chart, song] %> </p>
+                </div>
+            </div>
+
+         <div class="col-10 hide"></div>
+    </div>
+
+    </li>
+  <% end %>
+</ul>
+
+</div>
+<div class="col"></div>
+</div>
+</div>
+
 <p>What do you like to do?</p>
 
-<%= link_to 'Edit Song', edit_chart_path(@chart) %>
-<%= link_to 'Delete Song', @chart, method: :delete %>
+<%= link_to 'Add Song', new_chart_song_path(@chart) %>
+<%= link_to 'Edit Chart', edit_chart_path(@chart) %>
+<%= link_to 'Delete Chart', @chart, method: :delete %>
 <%= link_to 'Back', root_path%>
