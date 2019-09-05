@@ -1,21 +1,21 @@
 class PreformersController < ApplicationController
   before_action :set_song
   before_action :set_preformer, only: [:show, :edit, :update, :destroy]
-
+ 
   def index
-    @preformers = Preformer.all
+    @preformers = @song.preformers
   end
 
   def show
   end
 
   def new
-    @preformer = Preformer.new
+    @preformer = @song.preformers.new
     render partial: 'form'
   end
 
   def create
-    @preformer = Preformer.new(preformer_params)
+    @preformer = @song.preformer.new(preformer_params)
 
     if @preformer.save
       redirect_to [@song]
@@ -43,7 +43,7 @@ class PreformersController < ApplicationController
 
   private
   def preformer_params
-    params.require(:preformer).permit(:attr, :name, :label)
+    params.require(:preformer).permit(:name, :label)
   end
 
   def set_song

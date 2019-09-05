@@ -6,12 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+3.times do
+    chart = Chart.new
+        chart.title:  'Top 10'
+        chart.genre: Faker::Music.genre
+        
 
-# 10.times do 
-#     @song = @chart.songs.create([{
-#         title: Faker::Book.title,
-#         artist: Faker::Music.band,
-#         album: Faker::Music.album,
-#         genre: Faker::Music.genre
-#     }])
-# end 
+    chart.save
+    song = Song.new
+
+    10.times do 
+        song = Song.new
+            song.title: Faker::Book.title
+            song.artist: Faker::Music.band
+            song.album: Faker::Music.album
+            song.genre: Faker::Music.genre
+            song.chart = chart
+            song.save
+        
+
+end
+
+puts 'Data seeded.'

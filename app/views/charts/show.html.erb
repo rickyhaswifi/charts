@@ -8,7 +8,7 @@
 <div class="col"></div>
 <div class="col-10">
 
-<ul id="columns">
+<ol id="columns">
   <% @chart.songs.each do |song|%>
     <li class="card chart-song mb-3 column" draggable="true">
 
@@ -25,15 +25,20 @@
             </div>
 
          <div class="col">
+            <div class="spotify">
+         <%= song.spotify %>
+        </div>
           <p class="chart-song-edit"> <%= link_to '✎', [@chart, song] %> 〓 </p>
          </div>
     </div>
 
     </li>
   <% end %>
-</ul>
+</ol>
 
-</div>
+
+
+</div>j
 <div class="col"></div>
 </div>
 </div>

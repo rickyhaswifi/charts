@@ -11,8 +11,10 @@
 <p>Genre: <%= @song.genre %></p>
 </div>
 
+
 <p>
-<%= link_to 'Artist Details', new_song_preformer_path(@song) %> |
+<%= link_to 'View Artist Details', song_preformer_path(@song) %> |
+<%= link_to 'Edit Artist Details', new_song_preformer_path(@song) %> |
 <%= link_to 'Edit Song', edit_chart_song_path([@chart, @song]) %> |
 <%= link_to 'Delete Song', [@chart, @song], method: :delete %> |
 <%= link_to 'Back To Songs', chart_song_path(@chart) %> |
