@@ -1,8 +1,0 @@
-<h1>Artist details</h1>
-<h1><%= @preformer.name %></h1>
-<p><%= @preformer.recordlabel %></p>
-
-<%= link_to 'Edit artist', edit_song_preformer_path([@song, @preformer]) %>
-<%= link_to 'Delete artist', [@song, @preformer], method: :delete %>
-<%= link_to 'Back To Songs', song_preformer_path(@song) %>
-<%= link_to 'Back', root_path%>

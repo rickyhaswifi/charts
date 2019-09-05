@@ -1,29 +1,25 @@
 class SongsController < ApplicationController
-  before_action :set_chart
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-  # validates :spotify, {slice! 'https://www.youtube.com/watch?v='}
+  validates :spotify, {slice! 'https://open.spotify.com/track/'}
 
   def index
-    @songs = @chart.songs
+    @songs = Song.all
   end
 
   def show
   end
 
   def new
-    @song = @chart.songs.new
+    @song = Songs.new
     render partial: 'form'
   end
 
 
   def create
-    @song = @chart.songs.new(song_params)
+    @song = Songs.new(song_params)
 
     if @song.save
-      def slice
-        @song.spotify
-      end
-      redirect_to [@chart]
+      redirect_to @song
     else
       render :new
     end
@@ -35,7 +31,7 @@ class SongsController < ApplicationController
 
   def update
     if @song.update(song_params)
-      redirect_to [@chart, @song]
+      redirect_to @song
     else
       render :edit
     end
@@ -43,16 +39,12 @@ class SongsController < ApplicationController
 
   def destroy
     @song.destroy
-    redirect_to chart_path
+    redirect_to songs_path
   end
 
   private
   def song_params
     params.require(:song).permit(:title, :artist, :album, :genre, :spotify)
-  end
-
-  def set_chart
-    @chart = Chart.find(params[:chart_id])
   end
 
   def set_song
