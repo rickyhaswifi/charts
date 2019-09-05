@@ -1,3 +1,4 @@
 class Chart < ApplicationRecord
-    has_many :artists, dependent: :destroy
+    belongs_to :artist
+    belongs_to :song
 end

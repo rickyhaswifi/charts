@@ -1,6 +1,6 @@
 class Song < ApplicationRecord
-  belongs_to :artist, optional: true
-  has_one :artist
+  has_many :charts, dependent: :destroy
+  has_many :artist, through: :charts
 
   def spotify_link
     spotify_link = self.spotify.slice! 'https://open.spotify.com/track/'

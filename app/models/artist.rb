@@ -1,4 +1,4 @@
 class Artist < ApplicationRecord
-    belongs_to :song
-    has_many :songs
+    has_many :charts, dependent: :destroy
+    has_many :songs, through: :charts
 end
